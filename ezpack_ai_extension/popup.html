@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <span class="logo">📦 EZPack AI</span>
+    <div class="modes">
+      <button data-mode="Amigable" class="active"></button>
+      <button data-mode="Mate"></button>
+      <button data-mode="Experta"></button>
+      <button data-mode="Omni"></button>
+      <button data-mode="Meme"></button>
+    </div>
+    <button id="expandBtn" title="Abrir en pestaña">⛶</button>
+    <button id="themeBtn" title="Tema">🌙</button>
+    <button id="settingsBtn" title="Ajustes">⚙️</button>
+  </header>
+
+  <div id="settingsPanel" class="settings-panel">
+    <h3 data-i18n="settings"></h3>
+    <label>
+      <span data-i18n="apiKey"></span>
+      <input type="password" id="apiKeyInput" placeholder="AIza…">
+    </label>
+    <p class="hint" data-i18n="apiHint"></p>
+    <div class="row">
+      <button id="saveSettings" data-i18n="save"></button>
+      <button id="clearChat" data-i18n="clear"></button>
+    </div>
+  </div>
+
+  <div id="chat" class="chat" role="log" aria-live="polite"></div>
+
+  <div class="chips">
+    <button data-prompt="hora">⏰ <span data-i18n="chipHora"></span></button>
+    <button data-prompt="fecha">📅 <span data-i18n="chipFecha"></span></button>
+    <button data-prompt="mate: 45*12+8">🧮 <span data-i18n="chipMate"></span></button>
+    <button data-prompt="biologia ¿qué es la célula?">🧬 <span data-i18n="chipBiologia"></span></button>
+    <button id="summarizeBtn">📺 <span data-i18n="chipResumir"></span></button>
+    <button data-prompt="ayuda">❓ <span data-i18n="chipAyuda"></span></button>
+    <button data-prompt="chiste">😂 <span data-i18n="chipChiste"></span></button>
+  </div>
+
+  <div class="input-area">
+    <input type="text" id="userInput" maxlength="2000">
+    <button id="sendBtn">➤</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+:root {
+  --bg: #0b0f19;
+  --panel: #111827;
+  --text: #f3f4f6;
+  --accent: #3b82f6;
+  --border: #1f2937;
+  --bubble-ai: #1f2937;
+  --bubble-user: #1d4ed8;
+  --muted: #9ca3af;
+}
+html[data-theme="light"] {
+  --bg: #f3f4f6; --panel: #ffffff; --text: #111827;
+  --border: #e5e7eb; --bubble-ai: #e5e7eb; --bubble-user: #2563eb;
+  --muted: #6b7280; --accent: #2563eb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+body {
+  width: 420px; height: 580px; display: flex; flex-direction: column;
+  background: var(--bg); color: var(--text); font-size: 14px; overflow: hidden;
+}
+header {
+  background: var(--panel); border-bottom: 1px solid var(--border);
+  padding: 8px 12px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.logo { font-weight: bold; font-size: 0.95rem; margin-right: auto; }
+.modes { display: flex; gap: 3px; flex-wrap: wrap; }
+.mode-btn {
+  background: var(--border); color: var(--text); border: none;
+  padding: 4px 8px; border-radius: 6px; font-size: 0.72rem; cursor: pointer;
+}
+.mode-btn.active { background: var(--accent); color: #fff; }
+header button:not(.mode-btn) {
+  background: none; border: 1px solid var(--border); color: var(--muted);
+  width: 28px; height: 28px; border-radius: 6px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+header button:hover { color: var(--text); border-color: var(--accent); }
+
+.settings-panel {
+  display: none; background: var(--panel); border-bottom: 1px solid var(--border);
+  padding: 12px 14px; flex-direction: column; gap: 8px;
+}
+.settings-panel.open { display: flex; }
+.settings-panel h3 { font-size: 0.85rem; margin-bottom: 4px; }
+.settings-panel label { display: flex; flex-direction: column; gap: 4px; font-size: 0.78rem; color: var(--muted); }
+.settings-panel input { background: var(--bg); color: var(--text); border: 1px solid var(--border); padding: 6px 8px; border-radius: 6px; font-size: 0.85rem; }
+.hint { font-size: 0.72rem; color: var(--muted); font-style: italic; }
+.row { display: flex; gap: 6px; }
+.row button { flex: 1; background: var(--border); color: var(--text); border: none; padding: 6px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; }
+.row button:hover { background: var(--accent); color: #fff; }
+
+.chat {
+  flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 8px;
+  scroll-behavior: smooth;
+}
+.message {
+  padding: 8px 12px; border-radius: 10px; line-height: 1.45; font-size: 0.88rem;
+  word-break: break-word; max-width: 88%;
+}
+.message.ai { background: var(--bubble-ai); align-self: flex-start; border-bottom-left-radius: 3px; }
+.message.user { background: var(--bubble-user); color: #fff; align-self: flex-end; border-bottom-right-radius: 3px; }
+.message b { font-weight: 600; }
+.message code { background: rgba(128,128,128,0.25); padding: 1px 5px; border-radius: 4px; font-family: monospace; font-size: 0.85em; }
+.message pre { background: #0d1117; color: #c9d1d9; padding: 10px; border-radius: 6px; overflow-x: auto; margin: 6px 0; font-family: monospace; font-size: 0.82rem; }
+.message a { color: #93c5fd; text-decoration: underline; }
+.message ul { margin: 4px 0 4px 18px; }
+
+.chips {
+  padding: 8px 10px; display: flex; gap: 6px; overflow-x: auto;
+  background: rgba(128,128,128,0.06); border-top: 1px solid var(--border);
+}
+.chips button {
+  background: var(--border); border: none; color: var(--text);
+  padding: 5px 10px; border-radius: 14px; font-size: 0.75rem; cursor: pointer;
+  white-space: nowrap; flex-shrink: 0;
+}
+.chips button:hover { background: var(--accent); color: #fff; }
+
+.input-area {
+  padding: 8px 10px; background: var(--panel); border-top: 1px solid var(--border);
+  display: flex; gap: 6px;
+}
+#userInput {
+  flex: 1; background: var(--bg); border: 1px solid var(--border);
+  padding: 8px 12px; border-radius: 8px; color: var(--text); font-size: 0.88rem; outline: none;
+}
+#userInput:focus { border-color: var(--accent); }
+#sendBtn {
+  background: var(--accent); color: #fff; border: none; padding: 0 16px;
+  border-radius: 8px; font-weight: bold; cursor: pointer;
+}
+#sendBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.typing { color: var(--muted); font-style: italic; font-size: 0.82rem; padding: 4px 8px; }
